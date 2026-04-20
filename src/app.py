@@ -31,7 +31,7 @@ transform = transforms.Compose([
     transforms.ToTensor(),
 ])
 
-classes = ["airplane","car","bird","cat","deer","dog","frog","horse","ship","truck"]
+classes = ["airplane","car","bird","cat","deer","dog","frog","horse","ship","truck", "kangaroo"]
 
 
 @app.route("/", methods=["GET", "POST"])

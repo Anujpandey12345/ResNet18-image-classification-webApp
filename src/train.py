@@ -114,3 +114,4 @@ trainer.fit(model, train_loader, val_loader)
 
 # Save you model
 torch.save(model.model.state_dict(), "resnet18_model.pth")
+
