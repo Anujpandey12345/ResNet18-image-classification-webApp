@@ -1,0 +1,9 @@
+# Ignore model files
+*.pth
+
+# Ignore data
+data/
+*.tar.gz
+
+# Ignore uploads
+static/uploads/
