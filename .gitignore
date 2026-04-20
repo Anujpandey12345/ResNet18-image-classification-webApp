@@ -1,12 +1,13 @@
-# Ignore model files
-*.pth
+# Python cache
+__pycache__/
 
-# Ignore data
-data/
+# Logs & checkpoints
+src/lightning_logs/
+*.ckpt
+
+# Dataset
+src/dataT/
 *.tar.gz
 
-# Ignore uploads
-static/uploads/
-
-
-*.save
+# Notebook
+.notebook/
