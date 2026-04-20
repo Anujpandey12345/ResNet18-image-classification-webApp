@@ -11,3 +11,6 @@ src/dataT/
 
 # Notebook
 .notebook/
+
+# Static files
+static/
