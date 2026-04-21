@@ -1,0 +1,22 @@
+[
+    {
+        "image": "static/uploads/72b5d6da-5a43-490d-a401-71d4e2e5fcfc.jpg",
+        "prediction": "bird",
+        "confidence": 98.48
+    },
+    {
+        "image": "static/uploads/48d20dd7-15ac-409d-ac4f-81b0b13c0aa0.jpg",
+        "prediction": "deer",
+        "confidence": 59.12
+    },
+    {
+        "image": "static/uploads/fb8aad57-d367-4bbe-9338-8fed8109fe71.jpg",
+        "prediction": "deer",
+        "confidence": 100.0
+    },
+    {
+        "image": "static/uploads/7cb07920-646f-416e-8293-b9294f16a03c.jpg",
+        "prediction": "ship",
+        "confidence": 48.86
+    }
+]

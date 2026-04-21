@@ -6,9 +6,40 @@ from PIL import Image
 # Load model
 from torchvision.models import resnet18, ResNet18_Weights
 import torch.nn as nn
-import uuid, os
+import uuid, os, json
 
 app = Flask(__name__)
+
+
+HISTORY_FILE = "history.json"
+
+def save_history(image_path, prediction, confidence):
+    data = []
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE, "r") as f:
+            try:
+                data = json.load(f)
+            except:
+                data = []
+
+    data.append({
+        "image": image_path,
+        "prediction": prediction,
+        "confidence": confidence
+    })
+    with open(HISTORY_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
+
+def load_history():
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE, "r") as f:
+            try:
+                return json.load(f)
+            except:
+                return []
+    return []
+
 
 model = models.resnet18(weights=None)
 model.fc = nn.Linear(512, 10)
@@ -60,6 +91,8 @@ def index():
         prediction = classes[pred.item()]
         confidence = round(conf.item() * 100, 2)
         image_path = filepath
-    return render_template("index.html", prediction=prediction, confidence=confidence, image_path=image_path)
+        save_history(image_path, prediction, confidence)
+    history = load_history()
+    return render_template("index.html", prediction=prediction, confidence=confidence, image_path=image_path, history=history)
 if __name__ == "__main__":
     app.run(debug=True)
